@@ -1,0 +1,38 @@
+### Add a borrower
+POST http://localhost:5000/api/borrowers
+Content-Type: application/json
+
+{ "name": "Test Borrower", "phone": "0700000000" }
+
+### List all borrowers
+GET http://localhost:5000/api/borrowers
+
+### Loan A - on time
+POST http://localhost:5000/api/loans
+Content-Type: application/json
+
+{
+  "borrower": "6af2144f8f9d8c6c8b6840b0",
+  "collateral": "Test laptop",
+  "amountTaken": 20000,
+  "durationWeeks": 1,
+  "dateGiven": "2026-11-09"
+}
+
+### Loan B - overdue
+POST http://localhost:5000/api/loans
+Content-Type: application/json
+
+{
+  "borrower": "6af2144f8f9d8c6c8b6840b0",
+  "collateral": "Test phone",
+  "amountTaken": 10000,
+  "durationWeeks": 1,
+  "dateGiven": "2026-11-01"
+}
+
+### List loans
+GET http://localhost:5000/api/loans
+
+### Summary
+GET http://localhost:5000/api/loans/summary
